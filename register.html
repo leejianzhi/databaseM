@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+·<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,6 +54,32 @@
 
 
 <!--Homepage Content-->
+
+<script>
+        function getpassword()
+        {
+          var pwd=document.regform.pwd.value;
+          var pwdconfirm=document.regform.pwdconfirm.value;
+          if(pwd!=pwdconfirm)
+          {
+            document.getElementByld("attention").innerHTML="The pasword is not same, please try again";
+            //alert("密码不一致，请重新输入！");
+          }
+          else
+          {
+            document.getElementByld("attention").innerHTML="";
+          }
+        }
+        function showHint(user)
+        {
+          var xmlhttp;
+          if (user.length==0)
+          {
+            document.getElementById("txtHint").innerHTML="Username cannot be empty";
+            return;
+          }
+        }
+</script>
 <div>
 <section class="jumbotron text-center">
 	<h2 align="center">Register for your account</h2>
@@ -65,22 +91,30 @@
 <!--Login or Register Session-->
 <!-- LOGIN FORM -->
 <!-- REGISTRATION FORM -->
-<form align = "center">
+
+<form action= "scripts/register.php" align = "center" method="post" name="regform">
   <label>
     <p class="label-txt">ENTER YOUR USERNAME</p>
-    <input type="text" class="input">
+    <input name = "user" type="post" id="user" class="input">
     <div class="line-box">
       <div class="line"></div>
     </div>
   </label>
   <label>
     <p class="label-txt">ENTER YOUR PASSWORD</p>
-    <input type="text" class="input">
+    <input name="pwd" type="password" id="pwd" class="input">
     <div class="line-box">
       <div class="line"></div>
     </div>
   </label>
-  <button type="submit">submit</button>
+    <label>
+    <p class="label-txt">Please confirm your password</p>
+    <input name="pwdconfirm" type="password" id="pwdconfirm" class="input" onkeyup="getpassword()"><span id="attention">
+    <div class="line-box">
+      <div class="line"></div>
+    </div>
+  </label>
+  <button type="submit" value="ok" target="_blank">submit</button>
 </form>
 
 <div align = "center">
