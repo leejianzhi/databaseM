@@ -24,12 +24,12 @@ if(isset($_POST['user']) and isset($_POST['pwd']) and isset($_POST['pwdconfirm']
 				}			
 				else
 				{
-					echo "<script charset=UTF-8>alert('Cannot register Admin account ');window.location.href='register.html'</script>";
+					echo "<script charset=UTF-8>alert('Cannot register Admin account ');window.location.href='/register.html'</script>";
 				}
 			}
 		else
 		{
-				echo "<script charset=UTF-8>alert('User Exist！');window.location.href='register.html'</script>";
+				echo "<script charset=UTF-8>alert('User Exist！');window.location.href='/register.html'</script>";
 		}
 		
 	}

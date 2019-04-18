@@ -1,5 +1,5 @@
 <h2>Search</h2>    
-<form name="search" method="post" action="<?php echo localhost/iservice/s.php;?>">   
+<form name="search" method="post" action="<?php echo localhost/finalProject/s.php;?>">   
 Seach for: <input type="text" name="find" /> in    
 <Select NAME="field">   
 <Option VALUE="coach">First Name</option>   
@@ -20,7 +20,7 @@ exit;
 }     
 // 否则我们连接到数据库    
 mysql_connect("localhost", "root", "mysql") or die(mysql_error());    
-mysql_select_db("iservice") or die(mysql_error());    
+mysql_select_db("finalProject") or die(mysql_error());    
 // 处理一下关键词    
 $find = strtoupper($find);    
 $find = strip_tags($find);    

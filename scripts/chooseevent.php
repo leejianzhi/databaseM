@@ -5,22 +5,56 @@
 		<title>
 			User Page
 		</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-	<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
-  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	</head>  
-<form name="search" method="post" action="searchevent.php">   
-Seach for: <input type="text" name="find" /> in    
-<Select NAME="field">   
-<Option VALUE="Coach">Coach</option>   
-<Option VALUE="name">Name</option>   
-</Select>   
-<input type="hidden" name="searching" value="yes" />   
-<input type="submit" name="search" value="Search" />   
-</form>
+
 	<body>
+		<!-- Header of the site -->
+
+	<div class="jumbotron text-center">
+  		<h1>Event Reservation</h1>
+  		<p>For INFSCI 2710 Final Project</p>
+	</div>
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!-- Brand/logo -->
+  <a class="navbar-brand" href="#">ReserveToday</a>
+  
+  <!-- Links -->
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <ul class="navbar-nav mx-auto">
+    <li class="nav-item active">
+      <a class="nav-link" href="/index.html">Login / Signup</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/events.html">Events</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/coach.html">Coach</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/search.html">Search</a>
+    </li>
+  </ul>
+
+  </div>
+</nav>
+	<form name="search" method="post" action="searchevent.php">   
+		
+		<div class="form-group">
+		Seach for: <input type="text" name="find" /> in    
+		<Select NAME="field">   
+			<Option VALUE="Coach">Coach_Name</option>   
+			<Option VALUE="name">Event_Name</option>   
+		</Select>   
+			<input type="hidden" name="searching" value="yes" />   
+			<input type="submit" name="search" value="Search" />  
+		</div> 
+	</form>
 		<?php
 			session_start();
 			// Create connection
