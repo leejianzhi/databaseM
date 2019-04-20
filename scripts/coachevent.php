@@ -9,6 +9,7 @@
 	<body>
 		<a href=addevent.php>Add New</a>
 		<?php
+			session_start();
 			// Create connection
 			$servername = "localhost";
 			$username = "root";
@@ -30,6 +31,15 @@
 				echo "<table border=1px>";
 				echo "<tr>";
 					echo "<td>";
+					echo "";
+					echo "</td>";
+					echo "<td>";
+					echo "";
+					echo "</td>";
+					echo "<td>";
+					echo "<td>";
+					echo "";
+					echo "</td>";
 					echo "Who is in this event";
 					echo "</td>";
 					echo "<td>";
@@ -66,7 +76,26 @@
 				while($row = $result->fetch_assoc())
 				{
 					echo "<tr>";
+					$sqlj = "select * from  coach_event where coach_id='".$_SESSION["admin"] ."' and event_id='".$row['event_id']."'";
 					$sql2 = "SELECT user.user_name FROM user_event JOIN (user) ON (user_event.user_id = user.user_id) where event_id = '".$row['event_id']."'";
+					if(mysqli_num_rows($conn->query($sqlj))==0)
+					{
+						echo "<td>";
+						echo "You are not in this event";
+						echo "</td>";
+					}
+					else
+					{
+						echo "<td>";
+						echo "You are in this event";
+						echo "</td>";
+					}
+					echo "<td>";
+					echo "<a href='c_dropevent.php?id=".$row['event_id']."'>drop</a>";
+					echo "</td>";
+					echo "<td>";
+					echo "<a href='c_joinevent.php?id=".$row['event_id']."'>join</a>";
+					echo "</td>";
 					echo "<td>";
 					$result0 = mysqli_query($conn,$sql2); 
 					while($r = $result0->fetch_assoc())

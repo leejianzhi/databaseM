@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>User Profile</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+<div class="jumbotron text-center">
+  <h1>Event Reservation</h1>
+  <p>For INFSCI 2710 Final Project</p>
+</div>
+<!-- Nav Bar -->
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!-- Brand/logo -->
+  <a class="navbar-brand" href="#">ReserveToday</a>
+  
+  <!-- Links -->
+  <ul class="navbar-nav mx-auto">
+    <li class="nav-item">
+      <a class="nav-link" href="/index.html">Login / Signup</a>
+    </li>
+  </ul>
+</nav>
+
+
+<div class="container">
+    <div class="form-group">
+   
+   <form action="scripts/addUserdetail.php" method="post" name="regform">             
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" name= "name" id="name" placeholder="Enter your full name">
+    
+    <div class="form-group">
+      <label for="age">Age:</label>
+      <input type="number" class="form-control" id="age" placeholder="Enter your age" name="age" required>
+    </div>
+      <div class="form-group">
+      <label for="gender">Gender:</label>
+      <input type="text" class="form-control" id="gender" placeholder="Enter your gender" name="gender" required>
+    </div>
+      <div class="form-group">
+      <label for="address">Address:</label>
+      <input type="text" class="form-control" id="address" placeholder="Enter password" name="address" required>
+    </div>
+      <div class="form-group">
+      <label for="phone_number">Phone Number:</label>
+      <input type="text" class="form-control" id="phone_number" placeholder="Enter Phone Number" name="phone_number" required>
+    </div>
+      <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter You Email" name="email" required>
+      </div>
+      <div class="form-group">
+      <label for="birthday">Birthday:</label>
+      <input type="date" class="form-control" id="birthday" placeholder="YYYY-MM-DD" name="birthday" required>
+    </div>
+      
+      <div class="form-group">
+      <label for="paypal_account">Paypal Account:</label>
+      <input type="text" class="form-control" id="paypal_account" placeholder="Enter You Paypal Account" name="paypal_account" required>
+    </div>
+    </div>
+  </div>
+<div class="container">
+    <button atype="submit" class="btn btn-primary">Submit</button>
+   </div>
+  </form>
+  <br>
+  <br>
+ 
+
+
+
+</body>
+</html>

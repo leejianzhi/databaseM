@@ -30,15 +30,7 @@
     <li class="nav-item active">
       <a class="nav-link" href="/index.html">Login / Signup</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/events.html">Events</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/coach.html">Coach</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/search.html">Search</a>
-    </li>
+
   </ul>
 
   </div>
@@ -55,6 +47,9 @@
 			<input type="submit" name="search" value="Search" />  
 		</div> 
 	</form>
+	<form action="addUserdetail.html" method="post">
+		<div class="container">
+    <button atype="submit" class="btn btn-primary">Update MyProfile</button>
 		<?php
 			session_start();
 			// Create connection

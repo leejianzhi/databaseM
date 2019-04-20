@@ -13,7 +13,7 @@
 			Name:<input type="text" name="Name"><br>
 			Time:
 				<input type="datetime-local" id="Time"
-				name="meeting-time" value="2018-06-12T19:30"
+				name="Time" value="2018-06-12T19:30"
 				><br>
 			Location:<input type="text" name="Location"><br>
 			Coach:<input type="text" name="Coach"><br>
@@ -29,7 +29,7 @@
 		<?php
 			$Name = $_POST["Name"];
 			$Name = addslashes($Name);
-			$Time = $_POST["Time"];
+			$Time = date("Y-m-d h-i" ,strtotime(str_replace('.', '-', $_POST["Time"])  ));
 			$Location = $_POST["Location"];
 			$Coach = $_POST["Coach"];
 			$assistant_coach = $_POST["assistant_coach"];

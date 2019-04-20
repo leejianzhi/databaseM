@@ -19,7 +19,7 @@
 			} 
 			echo "<p><font color=\"red\">Connected successfully</font></p>";
 			session_start();
-				$sql = "select * from  coach_event where coach_id='".$_SESSION["admin"] ."' and coach_id='".$id."'";
+				$sql = "select * from  coach_event where coach_id='".$_SESSION["admin"] ."' and event_id='".$id."'";
 									echo "<p><font color=\"red\">".$sql."</font></p>";
 				if(mysqli_num_rows($conn->query($sql))>=1)
 				{
