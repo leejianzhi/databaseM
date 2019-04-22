@@ -18,8 +18,8 @@
 			$id = $_GET['user_id'];
 			echo "<p><font color=\"red\">Id is ".$id."</font></p>";
 			
-			$sql = "INSERT INTO userdetails (user_id,Name,age,gender,address,phone_number,email,parent_phone,birthday,paypal_account)
-			VALUES ('".$_SESSION["admin"]."','".$Name."', '".$Age."','".$Gender."','".$Address."','".$phone_number."', '".$email."', '".$parent_phone."', '".$birthday."', '".$paypal_account."')";	
+			$sql = "INSERT INTO userdetails (user_id,Name,age,gender,address,phone_number,email,birthday,paypal_account)
+			VALUES ('".$_SESSION["admin"]."','".$Name."', '".$Age."','".$Gender."','".$Address."','".$phone_number."', '".$email."', '".$birthday."', '".$paypal_account."')";	
 			echo "<p><font color=\"red\">".$sql."</font></p>";
 			
 			// Create connection

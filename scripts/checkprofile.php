@@ -3,7 +3,7 @@
 	<head>
 
 		<title>
-			User Page
+			User Profile
 		</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -48,25 +48,37 @@
 			</div> 
 			</form>
 		
-			<form action="addUserdetail.html" method="post">
+			<form action="userdetail.php?id=<?=$id?>" method="post">
     			
-    			<button atype="submit" class="btn btn-primary pull-right">Add MyProfile</button>
+    			<button atype="submit" class="btn btn-primary pull-right">Update MyProfile</button>
 		
 			</form>
 		    
 		
-			<form action="checkprofile.php" method="post">
-		
-     			<button atype="submit" class="btn btn-primary">MyProfile</button>
-     	
-			</form>
-			
-		
-		
 
-	
-		<?php
+
+<?php
+
 			session_start();
+			$Name = $_POST["name"];
+			$Name = addslashes($Name);
+			$Age = $_POST["age"];
+			$Gender = $_POST["gender"];
+			$Address = $_POST["address"];
+			$phone_number = $_POST["phone_number"];
+			$email = $_POST["email"];
+			$birthday = $_POST["birthday"];
+			$paypal_account = $_POST["paypal_account"];
+
+
+			session_start();
+			$id = $_GET['user_id'];
+			echo "<p><font color=\"red\">Id is ".$id."</font></p>";
+			
+			$sql = "SELECT * from userdetails where user_id='".$_SESSION["admin"] ."'";
+
+			echo "<p><font color=\"red\">".$sql."</font></p>";
+			
 			// Create connection
 			$servername = "localhost";
 			$username = "root";
@@ -79,87 +91,35 @@
 			    die("Connection failed: " . $conn->connect_error);
 			} 
 			echo "<p><font color=\"red\">Connected successfully</font></p>";
-			
-			// Run a sql
-			$sql = "select * from eventinfo;";
-			$result = $conn->query($sql);
-			if ($result)
-			{
-				echo "<table border=1px>";
-				echo "<tr>";
-					echo "<td>";
-					echo "";
-					echo "</td>";
-					echo "<td>";
-					echo "";
-					echo "</td>";
-					echo "<td>";
-					echo "";
-					echo "</td>";
-					echo "<td>";
-					echo "id";
-					echo "</td>";
-					echo "<td>";
-					echo "name";
-					echo "</td>";
-					echo "<td>";
-					echo "time";
-					echo "</td>";
-					echo "<td>";
-					echo "place";
-					echo "</td>";
-					echo "<td>";
-					echo "coach1";
-					echo "</td>";
-					echo "<td>";
-					echo "coach2";
-					echo "</td>";
-					echo "<td>";
-					echo "detail";
-					echo "</td>";
-					echo "<td>";
-					echo "up_limit";
-					echo "</td>";
-					echo "<td>";
-					echo "current attend number";
-					echo "</td>";
-					echo "<td>";
-					echo "is_open";
-					echo "</td>";
-				echo "</tr>";
-				while($row = $result->fetch_assoc())
-				{
-					echo "<tr>";
-					$sql2 = "select * from  user_event where user_id='".$_SESSION["admin"] ."' and event_id='".$row['event_id']."'";
-					if(mysqli_num_rows($conn->query($sql2))==0)
-					{
-						echo "<td>";
-						echo "You are not in this event";
-						echo "</td>";
-					}
-					else
-					{
-						echo "<td>";
-						echo "You are in this event";
-						echo "</td>";
-					}
-					echo "<td>";
-					echo "<a href='dropevent.php?id=".$row['event_id']."'>drop</a>";
-					echo "</td>";
-					echo "<td>";
-					echo "<a href='joinevent.php?id=".$row['event_id']."'>join</a>";
-					echo "</td>";
-					foreach($row as $key=>$value)
-					{
-						echo "<td>$value</td>";
-					}
-					echo "</tr>";
-				}
-				echo "</table>";
+         
+
+
+			if ($conn->query($sql) === TRUE) {
+				echo "New Profile created successfully";
+			} else {
+				echo "Error: " . $sql . "<br>" . $conn->error;
 			}
-			$result->free();
-						// Close connection
+
+			$result = $conn->query($sql);
+				if($result -> num_rows > 0){
+
+				while($row = $result -> fetch_assoc()){
+
+					echo "Name: " .$row["name"]."<br>"."Age: ".$row["age"]."<br>"."Gender: ".$row["gender"]."<br>". "Address: ".$row["address"]."<br>"."Phone Number".$row["phone_number"]."<br>". "Email: ".$row["email"]."<br>"."Birthday: ".$row["birthday"]."<br>"."Paypal Account: ".$row["paypal_account"]."<br>";
+				}
+			}else{
+
+				echo "No results found";
+			}
+			$result->free(); 
+			
+			// Close connection
 			mysqli_close($conn);
-		?>
+
+?>
+
+
+
+
 	</body>
 </html>
